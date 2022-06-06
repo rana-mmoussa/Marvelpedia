@@ -15,5 +15,5 @@ protocol NetworkEndpoint {
 protocol APIRequest {
     var method: HTTPMethod { get }
     var path: String { get }
-    var parameters: [String: String] { get }
+    var parameters: [String: Any] { get }
 }

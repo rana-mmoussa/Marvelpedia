@@ -10,6 +10,9 @@ import Foundation
 struct CharacterThumbnail: Codable {
     let path: URL?
     let thumbnailExtension: String?
+    var url: URL? {
+        path?.appendingPathExtension(thumbnailExtension ?? "")
+    }
 
     enum CodingKeys: String, CodingKey {
         case path

@@ -9,15 +9,15 @@ import Foundation
 import RxSwift
 
 protocol CharacterRepositoryProtocol {
-    func getProductList() -> Observable<GetCharactersResponse>
+    func getProductList(params: GetCharactersRequest.Params) -> Observable<GetCharactersResponse>
 //    func getProductDetails(withId id: Int) -> Observable<MarvelCharacter>
 }
 
 struct CharacterRepository: CharacterRepositoryProtocol {
     private let networkManager = BaseNetworkLayer.shared
     
-    func getProductList() -> Observable<GetCharactersResponse> {
-        let request = GetCharactersRequest()
+    func getProductList(params: GetCharactersRequest.Params) -> Observable<GetCharactersResponse> {
+        let request = GetCharactersRequest(params: params)
         return networkManager.makeRequest(request: request)
     }
     

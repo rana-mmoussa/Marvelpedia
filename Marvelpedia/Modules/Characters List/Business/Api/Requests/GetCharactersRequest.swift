@@ -9,9 +9,23 @@ import Foundation
 import Alamofire
 
 struct GetCharactersRequest: APIRequest {
+    struct Params {
+        let offset: Int
+        let limit: Int
+        let nameStartsWith: String?
+    }
+    
     var method = HTTPMethod.get
     var path: String {
         return CharacterEndpoint.list.getEndpoint()
     }
-    var parameters = [String: String]()
+    var parameters = [String: Any]()
+    
+    init(params: Params) {
+        parameters["offset"] = params.offset
+        parameters["limit"] = params.limit
+        if let startsWith = params.nameStartsWith, !startsWith.isEmpty {
+            parameters["nameStartsWith"] = startsWith
+        }
+    }
 }
