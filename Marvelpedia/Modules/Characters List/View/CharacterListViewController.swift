@@ -11,22 +11,28 @@ import RxCocoa
 import Hero
 
 protocol CharacterListViewControllerDelegate: AnyObject {
+    func showLoadingIndicator()
+    func showBottomLoadingIndicator()
+    func hideLoading()
     func reloadData()
 }
 
-class CharacterListViewController: UIViewController {
+class CharacterListViewController: BaseViewController {
     @IBOutlet private weak var tableView: UITableView!
-
-    private var viewModel: CharacterListViewModelDelegate!
+    private var clearFiltersButton: UIBarButtonItem!
     private var searchController: UISearchController!
+    
+    private var viewModel: CharacterListViewModelDelegate!
     private var disposeBag = DisposeBag()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationBarText = (title: "Marvelpedia", isLarge: true)
         viewModel = CharacterListViewModel(view: self)
         setupTableView()
         setupSearchBar()
+        setupClearFiltersButton()
     }
     
     private func setupTableView() {
@@ -58,8 +64,22 @@ class CharacterListViewController: UIViewController {
             }).disposed(by: disposeBag)
     }
     
+    private func setupClearFiltersButton() {
+        clearFiltersButton = UIBarButtonItem(title: "Clear Filters", style: .plain,
+                                             target: self, action: #selector(clearFilters))
+        clearFiltersButton.tintColor = .red
+    }
+    
+    @objc
+    private func clearFilters() {
+        searchController.searchBar.text = nil
+        viewModel?.resetParams()
+        getCharacters()
+    }
+    
     @objc
     private func getCharacters(with name: String? = nil) {
+        showActivityIndicator()
         reloadData()
         viewModel?.getCharacters(withName: name)
     }
@@ -105,8 +125,29 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
 }
 
 extension CharacterListViewController: CharacterListViewControllerDelegate {
+    func showLoadingIndicator() {
+        showActivityIndicator()
+    }
+    
+    func showBottomLoadingIndicator() {
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0),
+                               width: tableView.bounds.width, height: CGFloat(44))
+
+        tableView.tableFooterView = spinner
+        tableView.tableFooterView?.isHidden = false
+    }
+    
+    func hideLoading() {
+        hideActivityIndicator()
+        tableView.tableFooterView = nil
+    }
+    
     func reloadData() {
         tableView.reloadData()
+        let shouldShowClearButton = viewModel?.shouldShowClearButton ?? true
+        navigationItem.rightBarButtonItem = shouldShowClearButton ? clearFiltersButton : nil
     }
 }
 
