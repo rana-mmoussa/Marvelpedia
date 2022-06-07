@@ -9,7 +9,7 @@ import Foundation
 
 enum CharacterEndpoint: NetworkEndpoint {
     case list
-    case details(characterId: Int)
+    case details(characterId: Double)
     
     func getEndpoint() -> String {
         switch self {

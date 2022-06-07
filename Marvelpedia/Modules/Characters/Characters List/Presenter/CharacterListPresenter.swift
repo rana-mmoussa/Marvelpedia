@@ -1,5 +1,5 @@
 //
-//  CharacterListViewModel.swift
+//  CharacterListPresenter.swift
 //  Marvelpedia
 //
 //  Created by Rana Moussa on 06/06/2022.
@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-protocol CharacterListViewModelDelegate: AnyObject {
+protocol CharacterListPresenterDelegate: AnyObject {
     var shouldShowClearButton: Bool { get }
     func getCharacters(withName name: String?)
     func numberOfCharacters() -> Int
@@ -16,19 +16,27 @@ protocol CharacterListViewModelDelegate: AnyObject {
     func shouldLoadMore(after index: Int) -> Bool
     func resetParams()
     func didSelectCharacter(at index: Int)
+    func getRowHeight(for height: CGFloat) -> CGFloat
 }
 
-class CharacterListViewModel: CharacterListViewModelDelegate {
-    private var disposeBag = DisposeBag()
+class CharacterListPresenter: CharacterListPresenterDelegate {
+    private weak var view: CharacterListViewControllerDelegate?
+    private var router: CharactersRouterProtocol
+    private var repo: CharacterRepositoryProtocol
+    
     private var characters: [MarvelCharacter] = []
     private var offset = 0
     private let pageCount = 10
     private var currentKeyword: String?
-    private weak var view: CharacterListViewControllerDelegate?
     
-    // TODO: inject repo and router
-    init(view: CharacterListViewControllerDelegate) {
+    private var disposeBag = DisposeBag()
+    
+    init(view: CharacterListViewControllerDelegate,
+         router: CharactersRouterProtocol,
+         repo: CharacterRepositoryProtocol) {
         self.view = view
+        self.router = router
+        self.repo = repo
     }
     
     // MARK: CharacterListViewModelDelegate
@@ -48,12 +56,15 @@ class CharacterListViewModel: CharacterListViewModelDelegate {
         showLoading()
         let params = GetCharactersRequest.Params(offset: offset, limit: pageCount,
                                                  nameStartsWith: name)
-        let observable = CharacterRepository().getProductList(params: params)
+        let observable = repo.getCharactersList(params: params)
         observable.subscribe(onNext: { [weak self] response in
             self?.checkNeedsReset(keyword: name)
             self?.getCharactersSucceeded(response: response)
+            
         }, onError: { error in
+            // TODO: error handling
             print(error.localizedDescription)
+            
         }).disposed(by: disposeBag)
     }
     
@@ -76,21 +87,18 @@ class CharacterListViewModel: CharacterListViewModelDelegate {
     }
     
     func didSelectCharacter(at index: Int) {
-        // TODO: router
-//        let character = characters[index]
-//        let detailsVC = storyboard?.instantiateViewController(
-//            withIdentifier: String(describing: CharacterDetailsViewController.self))
-//            as! CharacterDetailsViewController
-//        detailsVC.character = character
-//        detailsVC.modalPresentationStyle = .fullScreen
-//        self.navigationController?.pushViewController(detailsVC, animated: true)
+        router.navigateToCharacterDetailsPage(character: characters[index])
+    }
+    
+    func getRowHeight(for height: CGFloat) -> CGFloat {
+        return height / 5
     }
     
     // MARK: Private
     
     private func showLoading() {
         if characters.isEmpty {
-            view?.showLoadingIndicator()
+            view?.showLoading()
         } else {
             view?.showBottomLoadingIndicator()
         }
@@ -103,12 +111,14 @@ class CharacterListViewModel: CharacterListViewModelDelegate {
         }
     }
     
-    private func getCharactersSucceeded(response: GetCharactersResponse) {
+    private func getCharactersSucceeded(response: GetCharactersListResponse) {
         view?.hideLoading()
         if let newCharacters = response.data?.results, !newCharacters.isEmpty {
             characters.append(contentsOf: newCharacters)
             offset += newCharacters.count
-            view?.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.reloadData()
+            }
         }
     }
 }

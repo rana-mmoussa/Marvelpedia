@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharactersListData: Codable {
+struct BaseMarvelResponseData<T: Codable>: Codable {
     let offset, limit, total, count: Int?
-    let results: [MarvelCharacter]?
+    let results: [T]?
 }
