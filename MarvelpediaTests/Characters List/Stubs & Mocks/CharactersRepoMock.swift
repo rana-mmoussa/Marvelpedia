@@ -19,4 +19,9 @@ class CharactersRepoMock: CharacterRepositoryProtocol {
         let response: GetCharacterResponse = getResponseFrom(jsonFile: "ListCharactersResponse")!
         return PublishSubject.just(response)
     }
+    
+    func getCharacterContent(uri: String) -> Observable<GetContentDetailsResponse> {
+        let response: GetContentDetailsResponse = getResponseFrom(jsonFile: "GetContentDetailsResponse")!
+        return PublishSubject.just(response)
+    }
 }

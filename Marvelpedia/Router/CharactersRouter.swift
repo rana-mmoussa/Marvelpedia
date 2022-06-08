@@ -15,7 +15,8 @@ protocol BaseRouter {
 
 protocol CharactersRouterProtocol: BaseRouter  {
     func navigateToCharacterDetailsPage(character: MarvelCharacter)
-    func presentCharacterContentSheet(_ content: CharacterContent)
+    func presentCharacterContent(_ content: CharacterContent)
+    func presentContentDetailsOf(uri: String)
 }
 
 class CharactersRouter: CharactersRouterProtocol {
@@ -31,19 +32,26 @@ class CharactersRouter: CharactersRouterProtocol {
             withIdentifier: String(describing: CharacterDetailsViewController.self))
             as! CharacterDetailsViewController
         detailsVC.character = character
-        detailsVC.modalPresentationStyle = .fullScreen
         viewController?.navigationController?.pushViewController(detailsVC, animated: true)
     }
     
-    func presentCharacterContentSheet(_ content: CharacterContent) {
+    func presentCharacterContent(_ content: CharacterContent) {
         let contentSheet = mainStoryboard.instantiateViewController(
             withIdentifier: String(describing: CharacterContentViewController.self))
         as! CharacterContentViewController
         contentSheet.characterContent = content
-        let nav = UINavigationController(rootViewController: contentSheet)
-        nav.modalPresentationStyle = .pageSheet
-        nav.sheetPresentationController?.detents = [.medium(), .large()]
-        nav.sheetPresentationController?.preferredCornerRadius = 16
-        viewController?.present(nav, animated: true, completion: nil)
+        viewController?.present(contentSheet, animated: true, completion: nil)
     }
+    
+    func presentContentDetailsOf(uri: String) {
+        let contentSheet = mainStoryboard.instantiateViewController(
+            withIdentifier: String(describing: CharacterContentDetailsViewController.self))
+        as! CharacterContentDetailsViewController
+        contentSheet.uri = uri
+        contentSheet.modalPresentationStyle = .pageSheet
+        contentSheet.sheetPresentationController?.detents = [.medium(), .large()]
+        contentSheet.sheetPresentationController?.preferredCornerRadius = 16
+        viewController?.present(contentSheet, animated: true, completion: nil)
+    }
+    
 }

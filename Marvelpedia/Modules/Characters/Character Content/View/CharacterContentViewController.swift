@@ -48,14 +48,19 @@ class CharacterContentViewController: UIViewController {
 
 extension CharacterContentViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        characterContent.titles.count
+        characterContent.content.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterContentCell", for: indexPath)
-        let title = characterContent.titles[indexPath.row]
+        let title = characterContent.content[indexPath.row].title
         cell.textLabel?.text = title
         cell.textLabel?.font = UIFont(name: Fonts.comicSans.rawValue, size: 16)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let uri = characterContent.content[indexPath.row].uri
+        CharactersRouter(viewController: self).presentContentDetailsOf(uri: uri)
     }
 }

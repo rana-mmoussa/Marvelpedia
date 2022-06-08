@@ -46,34 +46,34 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterDelegate {
     
     func comicsButtonClicked() {
         if let comics = character?.comics?.items, !comics.isEmpty {
-            let titles = comics.map {
-                $0.name ?? "No Name"
+            let content = comics.map {
+                ($0.name ?? "No Name", $0.resourceURI?.absoluteString ?? "")
             }
-            router.presentCharacterContentSheet(CharacterContent(type: .comics,
-                                                                 count: character?.comics?.available
-                                                                 ?? 0, titles: titles))
+            router.presentCharacterContent(CharacterContent(type: .comics,
+                                                            count: character?.comics?.available ?? 0,
+                                                            content: content))
         }
     }
     
     func seriesButtonClicked() {
         if let series = character?.series?.items, !series.isEmpty {
-            let titles = series.map {
-                $0.name ?? "No Name"
+            let content = series.map {
+                ($0.name ?? "No Name", $0.resourceURI?.absoluteString ?? "")
             }
-            router.presentCharacterContentSheet(CharacterContent(type: .series,
-                                                                 count: character?.series?.available
-                                                                 ?? 0, titles: titles))
+            router.presentCharacterContent(CharacterContent(type: .series,
+                                                            count: character?.series?.available ?? 0,
+                                                            content: content))
         }
     }
     
     func storiesButtonClicked() {
         if let stories = character?.stories?.items, !stories.isEmpty {
-            let titles = stories.map {
-                $0.name ?? "No Name"
+            let content = stories.map {
+                ($0.name ?? "No Name", $0.resourceURI?.absoluteString ?? "")
             }
-            router.presentCharacterContentSheet(CharacterContent(type: .stories,
-                                                                 count: character?.stories?.available
-                                                                 ?? 0, titles: titles))
+            router.presentCharacterContent(CharacterContent(type: .stories,
+                                                            count: character?.stories?.available ?? 0,
+                                                            content: content))
         }
     }
     

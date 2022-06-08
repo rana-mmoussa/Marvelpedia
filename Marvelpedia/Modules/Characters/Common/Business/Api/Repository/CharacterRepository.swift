@@ -11,6 +11,7 @@ import RxSwift
 protocol CharacterRepositoryProtocol {
     func getCharactersList(params: GetCharactersRequest.Params) -> Observable<GetCharactersListResponse>
     func getCharacterDetails(withId id: Double) -> Observable<GetCharacterResponse>
+    func getCharacterContent(uri: String) -> Observable<GetContentDetailsResponse>
 }
 
 struct CharacterRepository: CharacterRepositoryProtocol {
@@ -23,6 +24,11 @@ struct CharacterRepository: CharacterRepositoryProtocol {
     
     func getCharacterDetails(withId id: Double) -> Observable<GetCharacterResponse> {
         let request = GetCharacterDetailsRequest(characterId: id)
+        return networkManager.makeRequest(request: request)
+    }
+    
+    func getCharacterContent(uri: String) -> Observable<GetContentDetailsResponse> {
+        let request = GetContentDetailsRequest(uri: uri)
         return networkManager.makeRequest(request: request)
     }
 }

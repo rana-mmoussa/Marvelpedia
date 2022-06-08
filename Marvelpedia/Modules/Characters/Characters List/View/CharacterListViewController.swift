@@ -96,7 +96,7 @@ class CharacterListViewController: BaseViewController {
     }
     
     private func scrollUp() {
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
     }
 }
 
@@ -171,4 +171,3 @@ extension CharacterListViewController: CharacterListViewControllerDelegate {
         navigationItem.rightBarButtonItem = shouldShowClearButton ? clearFiltersButton : nil
     }
 }
-

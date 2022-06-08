@@ -16,4 +16,11 @@ protocol APIRequest {
     var method: HTTPMethod { get }
     var path: String { get }
     var parameters: [String: Any] { get }
+    func shouldOverrideBaseUrl() -> Bool
+}
+
+extension APIRequest {
+    func shouldOverrideBaseUrl() -> Bool {
+        return false
+    }
 }

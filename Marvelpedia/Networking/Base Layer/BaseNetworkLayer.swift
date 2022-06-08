@@ -27,7 +27,8 @@ final class BaseNetworkLayer {
     
     func makeRequest<T: Codable>(request: APIRequest) -> Observable<T> {
         let method = request.method
-        let urlString = "\(baseUrl.rawValue)\(request.path)"
+        let urlString = getUrl(shouldOverrideBase: request.shouldOverrideBaseUrl(),
+                               path: request.path)
         let parameters = request.parameters + getCommonParameters()
         
         let resultObservable = RxAlamofire.data(method, urlString, parameters: parameters)
@@ -37,6 +38,10 @@ final class BaseNetworkLayer {
     }
     
     // MARK: private
+    
+    private func getUrl(shouldOverrideBase: Bool, path: String) -> String {
+        shouldOverrideBase ? path : "\(baseUrl.rawValue)\(path)"
+    }
     
     private func getCommonParameters() -> [String: Any] {
         let timestamp = Int(NSDate().timeIntervalSince1970)

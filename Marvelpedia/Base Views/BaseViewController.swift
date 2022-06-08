@@ -30,6 +30,8 @@ class BaseViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationItem.title = ""
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
     }
     
     func showActivityIndicator() {

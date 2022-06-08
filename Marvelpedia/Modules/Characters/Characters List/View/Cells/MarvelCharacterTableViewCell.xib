@@ -53,7 +53,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mnz-6N-bWG">
                                         <rect key="frame" x="152" y="0.0" width="350" height="162"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0n-DV-oLt">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0n-DV-oLt">
                                                 <rect key="frame" x="16" y="16" width="318" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="ComicSansMS-Bold" family="Comic Sans MS" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -62,7 +62,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkZ-rs-e3c">
                                                 <rect key="frame" x="16" y="57.5" width="318" height="20"/>
                                                 <fontDescription key="fontDescription" name="ComicSansMS-Italic" family="Comic Sans MS" pointSize="14"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>

@@ -15,7 +15,8 @@ enum CharacterContentType: String {
 }
 
 struct CharacterContent {
+    typealias Content = (title: String, uri: String)
     let type: CharacterContentType
     let count: Int
-    let titles: [String]
+    let content: [Content]
 }

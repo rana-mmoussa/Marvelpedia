@@ -24,8 +24,12 @@ class CharactersRouterStub: CharactersRouterProtocol {
         navigateToCharacterDetailsIsCalled = true
     }
     
-    func presentCharacterContentSheet(_ content: CharacterContent) {
+    func presentCharacterContent(_ content: CharacterContent) {
         presentCharacterContentIsCalled = true
         self.content = content
+    }
+    
+    func presentContentDetailsOf(uri: String) {
+        
     }
 }

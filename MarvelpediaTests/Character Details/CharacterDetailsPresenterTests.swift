@@ -49,7 +49,7 @@ class CharacterDetailsPresenterTests: XCTestCase {
         XCTAssertTrue(router.presentCharacterContentIsCalled)
         XCTAssertEqual(router.content?.type, CharacterContentType.comics)
         XCTAssertEqual(router.content?.count ?? 0, 12)
-        XCTAssertEqual(router.content?.titles.count ?? 0, 12)
+        XCTAssertEqual(router.content?.content.count ?? 0, 12)
     }
     
     func testNavigationToSeriesContentSheet() {
@@ -61,7 +61,7 @@ class CharacterDetailsPresenterTests: XCTestCase {
         XCTAssertTrue(router.presentCharacterContentIsCalled)
         XCTAssertEqual(router.content?.type, CharacterContentType.series)
         XCTAssertEqual(router.content?.count ?? 0, 3)
-        XCTAssertEqual(router.content?.titles.count ?? 0, 3)
+        XCTAssertEqual(router.content?.content.count ?? 0, 3)
     }
     
     func testNavigationToStoriesContentSheet() {
@@ -73,7 +73,7 @@ class CharacterDetailsPresenterTests: XCTestCase {
         XCTAssertTrue(router.presentCharacterContentIsCalled)
         XCTAssertEqual(router.content?.type, CharacterContentType.stories)
         XCTAssertEqual(router.content?.count ?? 0, 21)
-        XCTAssertEqual(router.content?.titles.count ?? 0, 20)
+        XCTAssertEqual(router.content?.content.count ?? 0, 20)
     }
     
     private func waitForxpectations() {
