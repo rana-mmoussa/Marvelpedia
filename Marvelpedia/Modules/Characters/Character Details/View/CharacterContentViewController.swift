@@ -39,7 +39,7 @@ class CharacterContentViewController: UIViewController {
         let label = UILabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
                                           width: tableView.bounds.width, height: CGFloat(44)))
         label.textAlignment = .center
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.font = UIFont(name: Fonts.comicSans.rawValue, size: 10)
         label.text = "Showing maximum of: 20"
         tableView.tableFooterView = label
         tableView.tableFooterView?.isHidden = false
@@ -55,6 +55,7 @@ extension CharacterContentViewController: UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterContentCell", for: indexPath)
         let title = characterContent.titles[indexPath.row]
         cell.textLabel?.text = title
+        cell.textLabel?.font = UIFont(name: Fonts.comicSans.rawValue, size: 16)
         return cell
     }
 }

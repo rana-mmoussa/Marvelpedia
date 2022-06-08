@@ -40,15 +40,6 @@ class CharacterDetailsPresenterTests: XCTestCase {
         XCTAssertEqual(view.character?.stories?.available ?? 0, 21)
     }
     
-    func testGetCharacterDetailsDelegateBehavior() {
-        presenter.getCharacter(with: 123456)
-        waitForxpectations()
-        
-        // assert that loading is shown and hidden successfully
-        XCTAssertTrue(view.loadingIsShown)
-        XCTAssertTrue(view.loadingIsHidden)
-    }
-    
     func testNavigationToComicsContentSheet() {
         presenter.getCharacter(with: 123456)
         waitForxpectations()

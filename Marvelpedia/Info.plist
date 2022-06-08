@@ -7,8 +7,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-    <key>UIUserInterfaceStyle</key>
-    <string>Light</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -28,5 +28,14 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>comici.ttf</string>
+		<string>comicz.ttf</string>
+		<string>ComicSansMS3.ttf</string>
+		<string>COMIC.TTF</string>
+		<string>design.graffiti.comicsansms.ttf</string>
+		<string>design.graffiti.comicsansmsgras.ttf</string>
+	</array>
 </dict>
 </plist>

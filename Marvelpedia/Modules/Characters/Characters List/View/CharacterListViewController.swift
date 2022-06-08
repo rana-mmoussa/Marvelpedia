@@ -119,9 +119,11 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
                    forRowAt indexPath: IndexPath) {
-        showCellAnimation(for: cell)
         if presenter?.shouldLoadMore(after: indexPath.row) ?? false {
             presenter?.getCharacters(withName: searchController.searchBar.text)
+        }
+        if tableView.scrollingDirection() == .down {
+            showCellAnimation(for: cell, at: indexPath)
         }
     }
     
@@ -134,15 +136,11 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     // helper methods
-    private func showCellAnimation(for cell: UITableViewCell) {
-//        cell.alpha = 0
-//        UIView.animate(withDuration: 0.3, animations: {
-//              cell.alpha = 1
-//        })
-//        cell.transform = CGAffineTransform(translationX: 0, y: cell.contentView.frame.height)
-//        UIView.animate(withDuration: 0.3, delay: 0.05 * Double(indexPath.row), animations: {
-//              cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
-//        })
+    private func showCellAnimation(for cell: UITableViewCell, at indexPath: IndexPath) {
+        cell.transform = CGAffineTransform(translationX: 0, y: cell.contentView.frame.height)
+        UIView.animate(withDuration: 0.3, animations: {
+              cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
+        })
     }
 }
 
@@ -166,7 +164,9 @@ extension CharacterListViewController: CharacterListViewControllerDelegate {
     }
     
     func reloadData() {
-        tableView.reloadData()
+        UIView.performWithoutAnimation {
+            tableView.reloadSections([0], with: .none)
+        }
         let shouldShowClearButton = presenter?.shouldShowClearButton ?? true
         navigationItem.rightBarButtonItem = shouldShowClearButton ? clearFiltersButton : nil
     }

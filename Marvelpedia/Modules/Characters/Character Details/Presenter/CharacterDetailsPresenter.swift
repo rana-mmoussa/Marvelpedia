@@ -33,7 +33,6 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterDelegate {
     }
     
     func getCharacter(with id: Double) {
-        view?.showLoading()
         let observable = repo.getCharacterDetails(withId: id)
         observable.subscribe(onNext: { [weak self] response in
             self?.getCharacterDetailsSucceeded(response: response)
@@ -80,7 +79,6 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterDelegate {
     
     // MARK: private
     func getCharacterDetailsSucceeded(response: GetCharacterResponse) {
-        view?.hideLoading()
         if let character = response.data?.results?.first {
             self.character = character
             DispatchQueue.main.async { [weak self] in
