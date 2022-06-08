@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CharacterCotnentType: String {
+enum CharacterContentType: String {
     case comics
     case series
     case stories
@@ -15,7 +15,7 @@ enum CharacterCotnentType: String {
 }
 
 struct CharacterContent {
-    let type: CharacterCotnentType
+    let type: CharacterContentType
     let count: Int
     let titles: [String]
 }

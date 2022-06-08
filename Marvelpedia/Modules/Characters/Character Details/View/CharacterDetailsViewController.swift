@@ -45,7 +45,7 @@ class CharacterDetailsViewController: BaseViewController {
         presenter = CharacterDetailsPresenter(view: self,
                                               router: CharactersRouter(viewController: self),
                                               repo: CharacterRepository())
-        navigationBarText = (title: "", isLarge: false)
+        navigationBarText = (title: "Character Info", isLarge: false)
         setupViews()
         displayCharacterInfo()
         presenter?.getCharacter(with: character?.id ?? 0)

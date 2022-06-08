@@ -68,7 +68,7 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterDelegate {
     }
     
     func storiesButtonClicked() {
-        if let stories = character?.comics?.items, !stories.isEmpty {
+        if let stories = character?.stories?.items, !stories.isEmpty {
             let titles = stories.map {
                 $0.name ?? "No Name"
             }

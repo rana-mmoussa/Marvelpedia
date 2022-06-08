@@ -119,30 +119,30 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell,
                    forRowAt indexPath: IndexPath) {
-//        showCellAnimation(for: cell)
+        showCellAnimation(for: cell)
         if presenter?.shouldLoadMore(after: indexPath.row) ?? false {
             presenter?.getCharacters(withName: searchController.searchBar.text)
         }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return presenter.getRowHeight(for: tableView.frame.height)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter?.didSelectCharacter(at: indexPath.row)
     }
     
-    // helper method
-    private func showCellAnimation(for cell: UITableViewCell) {
-        cell.alpha = 0
-        UIView.animate(withDuration: 0.3, animations: {
-              cell.alpha = 1
-        })
-    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollUpButton.isHidden = scrollView.contentOffset.y <= 0
+    }
+    
+    // helper methods
+    private func showCellAnimation(for cell: UITableViewCell) {
+//        cell.alpha = 0
+//        UIView.animate(withDuration: 0.3, animations: {
+//              cell.alpha = 1
+//        })
+//        cell.transform = CGAffineTransform(translationX: 0, y: cell.contentView.frame.height)
+//        UIView.animate(withDuration: 0.3, delay: 0.05 * Double(indexPath.row), animations: {
+//              cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
+//        })
     }
 }
 

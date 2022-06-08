@@ -18,12 +18,32 @@ class CharacterContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CharacterContentCell")
+        setupView()
+        setupTableView()
+    }
+    
+    private func setupView() {
         contentCountView.layer.cornerRadius = contentCountView.frame.height / 2
         contentCountLabel.text = String(characterContent.count)
         contentTypeLabel.text = characterContent.type.rawValue.capitalized
     }
-
+    
+    private func setupTableView() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CharacterContentCell")
+        if characterContent.count >= 20 {
+            addTableviewFooterHint()
+        }
+    }
+    
+    private func addTableviewFooterHint() {
+        let label = UILabel(frame: CGRect(x: CGFloat(0), y: CGFloat(0),
+                                          width: tableView.bounds.width, height: CGFloat(44)))
+        label.textAlignment = .center
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.text = "Showing maximum of: 20"
+        tableView.tableFooterView = label
+        tableView.tableFooterView?.isHidden = false
+    }
 }
 
 extension CharacterContentViewController: UITableViewDelegate, UITableViewDataSource {

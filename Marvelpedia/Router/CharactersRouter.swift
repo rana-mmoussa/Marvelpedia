@@ -10,7 +10,7 @@ import UIKit
 
 protocol BaseRouter {
     var viewController: UIViewController? { get }
-    init(viewController: UIViewController)
+    init(viewController: UIViewController?)
 }
 
 protocol CharactersRouterProtocol: BaseRouter  {
@@ -22,7 +22,7 @@ class CharactersRouter: CharactersRouterProtocol {
     weak var viewController: UIViewController?
     private let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
-    required init(viewController: UIViewController) {
+    required init(viewController: UIViewController?) {
         self.viewController = viewController
     }
     

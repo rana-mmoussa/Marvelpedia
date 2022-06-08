@@ -16,7 +16,6 @@ protocol CharacterListPresenterDelegate: AnyObject {
     func shouldLoadMore(after index: Int) -> Bool
     func resetParams()
     func didSelectCharacter(at index: Int)
-    func getRowHeight(for height: CGFloat) -> CGFloat
 }
 
 class CharacterListPresenter: CharacterListPresenterDelegate {
@@ -88,10 +87,6 @@ class CharacterListPresenter: CharacterListPresenterDelegate {
     
     func didSelectCharacter(at index: Int) {
         router.navigateToCharacterDetailsPage(character: characters[index])
-    }
-    
-    func getRowHeight(for height: CGFloat) -> CGFloat {
-        return height / 5
     }
     
     // MARK: Private
