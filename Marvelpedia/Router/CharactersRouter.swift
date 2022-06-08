@@ -17,6 +17,7 @@ protocol CharactersRouterProtocol: BaseRouter  {
     func navigateToCharacterDetailsPage(character: MarvelCharacter)
     func presentCharacterContent(_ content: CharacterContent)
     func presentContentDetailsOf(uri: String)
+    func showAlert(_ message: String)
 }
 
 class CharactersRouter: CharactersRouterProtocol {
@@ -52,6 +53,12 @@ class CharactersRouter: CharactersRouterProtocol {
         contentSheet.sheetPresentationController?.detents = [.medium(), .large()]
         contentSheet.sheetPresentationController?.preferredCornerRadius = 16
         viewController?.present(contentSheet, animated: true, completion: nil)
+    }
+    
+    func showAlert(_ message: String) {
+        if let viewController = viewController {
+            UIAlertController.show(message, from: viewController)
+        }
     }
     
 }

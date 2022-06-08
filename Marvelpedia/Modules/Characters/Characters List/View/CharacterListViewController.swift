@@ -10,11 +10,6 @@ import RxSwift
 import RxCocoa
 import Hero
 
-protocol BaseViewProtocol: AnyObject {
-    func showLoading()
-    func hideLoading()
-}
-
 protocol CharacterListViewControllerDelegate: BaseViewProtocol {
     func showBottomLoadingIndicator()
     func reloadData()
@@ -37,7 +32,7 @@ class CharacterListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBarText = (title: "Marvelpedia", isLarge: true)
+        navigationBarText = (title: "app_name".localized, isLarge: true)
         presenter = CharacterListPresenter(view: self,
                                            router: CharactersRouter(viewController: self),
                                            repo: CharacterRepository())
@@ -57,7 +52,7 @@ class CharacterListViewController: BaseViewController {
         searchController = {
             let controller = UISearchController(searchResultsController: nil)
             controller.obscuresBackgroundDuringPresentation = false
-            controller.searchBar.placeholder = "Character Name.."
+            controller.searchBar.placeholder = "character_name".localized
             return controller
         }()
         navigationItem.searchController = searchController
@@ -76,7 +71,7 @@ class CharacterListViewController: BaseViewController {
     }
     
     private func setupClearFiltersButton() {
-        clearFiltersButton = UIBarButtonItem(title: "Clear Filters", style: .plain,
+        clearFiltersButton = UIBarButtonItem(title: "clear_filters".localized, style: .plain,
                                              target: self, action: #selector(clearFilters))
         clearFiltersButton.tintColor = .red
     }

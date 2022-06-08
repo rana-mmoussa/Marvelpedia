@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="COMIC.TTF">
-            <string>ComicSansMS</string>
-        </array>
         <array key="comici.ttf">
             <string>ComicSansMS-Italic</string>
+        </array>
+        <array key="design.graffiti.comicsansms.ttf">
+            <string>ComicSansMS</string>
         </array>
         <array key="design.graffiti.comicsansmsgras.ttf">
             <string>ComicSansMS-Bold</string>
@@ -115,19 +115,19 @@
                                                 <rect key="frame" x="8" y="406" width="398" height="490"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndp-cN-sMS">
-                                                        <rect key="frame" x="8" y="24" width="382" height="28"/>
+                                                        <rect key="frame" x="8" y="24" width="382" height="33.5"/>
                                                         <fontDescription key="fontDescription" name="ComicSansMS-Bold" family="Comic Sans MS" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgj-OO-HqP">
-                                                        <rect key="frame" x="8" y="76" width="382" height="21"/>
+                                                        <rect key="frame" x="8" y="81.5" width="382" height="25.5"/>
                                                         <fontDescription key="fontDescription" name="ComicSansMS-Italic" family="Comic Sans MS" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Rb8-MW-D1X">
-                                                        <rect key="frame" x="8" y="129" width="382" height="198"/>
+                                                        <rect key="frame" x="8" y="139" width="382" height="198"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFI-Yg-5Xy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
@@ -387,20 +387,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aHp-1W-sq7">
-                                <rect key="frame" x="0.0" y="60" width="414" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Mct-zi-KBq"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="po4-R4-GtI">
-                                <rect key="frame" x="16" y="276" width="382" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDZ-fd-J1H">
+                                <rect key="frame" x="16" y="60" width="382" height="33.5"/>
                                 <fontDescription key="fontDescription" name="ComicSansMS-Bold" family="Comic Sans MS" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWa-Ex-cty">
-                                <rect key="frame" x="16" y="328" width="382" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aHp-1W-sq7">
+                                <rect key="frame" x="0.0" y="109.5" width="414" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Mct-zi-KBq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWa-Ex-cty">
+                                <rect key="frame" x="16" y="325.5" width="382" height="25.5"/>
                                 <fontDescription key="fontDescription" name="ComicSansMS-Italic" family="Comic Sans MS" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -409,21 +409,22 @@
                         <viewLayoutGuide key="safeArea" id="Pk3-ZF-Cpg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="po4-R4-GtI" firstAttribute="leading" secondItem="Pk3-ZF-Cpg" secondAttribute="leading" constant="16" id="8wL-ML-hrZ"/>
+                            <constraint firstItem="wDZ-fd-J1H" firstAttribute="leading" secondItem="Pk3-ZF-Cpg" secondAttribute="leading" constant="16" id="0SE-hF-A9l"/>
+                            <constraint firstItem="Pk3-ZF-Cpg" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nWa-Ex-cty" secondAttribute="bottom" constant="16" id="1VN-fx-1T2"/>
+                            <constraint firstItem="wDZ-fd-J1H" firstAttribute="bottom" secondItem="aHp-1W-sq7" secondAttribute="top" constant="-16" id="28W-z0-smM"/>
+                            <constraint firstItem="wDZ-fd-J1H" firstAttribute="top" secondItem="Pk3-ZF-Cpg" secondAttribute="top" constant="16" id="I9P-bz-kpo"/>
+                            <constraint firstItem="Pk3-ZF-Cpg" firstAttribute="trailing" secondItem="wDZ-fd-J1H" secondAttribute="trailing" constant="16" id="JRN-9s-Kwf"/>
                             <constraint firstItem="aHp-1W-sq7" firstAttribute="leading" secondItem="Pk3-ZF-Cpg" secondAttribute="leading" id="KKn-1i-BQR"/>
-                            <constraint firstItem="po4-R4-GtI" firstAttribute="top" secondItem="aHp-1W-sq7" secondAttribute="bottom" constant="16" id="Ne4-6r-yED"/>
-                            <constraint firstItem="nWa-Ex-cty" firstAttribute="top" secondItem="po4-R4-GtI" secondAttribute="bottom" constant="24" id="NhH-dk-e0L"/>
                             <constraint firstItem="Pk3-ZF-Cpg" firstAttribute="trailing" secondItem="nWa-Ex-cty" secondAttribute="trailing" constant="16" id="OTg-KZ-ndU"/>
-                            <constraint firstItem="Pk3-ZF-Cpg" firstAttribute="trailing" secondItem="po4-R4-GtI" secondAttribute="trailing" constant="16" id="cqp-a6-9Cw"/>
-                            <constraint firstItem="aHp-1W-sq7" firstAttribute="top" secondItem="Pk3-ZF-Cpg" secondAttribute="top" constant="16" id="eKj-33-Blr"/>
                             <constraint firstItem="nWa-Ex-cty" firstAttribute="leading" secondItem="Pk3-ZF-Cpg" secondAttribute="leading" constant="16" id="enK-qT-YGQ"/>
+                            <constraint firstItem="nWa-Ex-cty" firstAttribute="top" secondItem="aHp-1W-sq7" secondAttribute="bottom" constant="16" id="lV7-KT-SAD"/>
                             <constraint firstItem="Pk3-ZF-Cpg" firstAttribute="trailing" secondItem="aHp-1W-sq7" secondAttribute="trailing" id="siM-of-FPB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="nWa-Ex-cty" id="Vc1-BW-wSJ"/>
                         <outlet property="imageView" destination="aHp-1W-sq7" id="RFk-qX-9Au"/>
-                        <outlet property="titleLabel" destination="po4-R4-GtI" id="ZZW-Le-1PY"/>
+                        <outlet property="titleLabel" destination="wDZ-fd-J1H" id="brs-X2-pak"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hlu-JE-Qn6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

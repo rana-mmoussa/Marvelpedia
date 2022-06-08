@@ -23,7 +23,9 @@ class CharacterContentDetailsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        presenter = CharacterContentDetailsPresenter(view: self, repo: CharacterRepository())
+        presenter = CharacterContentDetailsPresenter(view: self,
+                                                     router: CharactersRouter(viewController: self),
+                                                     repo: CharacterRepository())
         showActivityIndicator()
         presenter?.getContentDetails(uri: uri)
     }

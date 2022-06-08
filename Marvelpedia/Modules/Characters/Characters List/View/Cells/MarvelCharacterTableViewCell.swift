@@ -10,6 +10,7 @@ import Kingfisher
 
 struct MarvelCharacterCellModel {
     let character: CharacterUIModel
+    // not used at the moment
     let isMirrored: Bool
 }
 
@@ -31,12 +32,6 @@ class MarvelCharacterTableViewCell: UITableViewCell {
         selectionStyle =  .none
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        stackView.removeArrangedSubview(characterImageContainerView)
-        stackView.insertArrangedSubview(characterImageContainerView, at: 0)
-    }
-    
     func setup(with model: MarvelCharacterCellModel) {
         characterImageView.kf.setImage(with: model.character.imageUrl,
                                        completionHandler: { [weak self] result in
@@ -50,10 +45,6 @@ class MarvelCharacterTableViewCell: UITableViewCell {
         })
         characterNameLabel.text = model.character.name
         characterDescriptionLabel.text = model.character.description
-        if model.isMirrored {
-            stackView.removeArrangedSubview(characterImageContainerView)
-            stackView.addArrangedSubview(characterImageContainerView)
-        }
     }
     
 }

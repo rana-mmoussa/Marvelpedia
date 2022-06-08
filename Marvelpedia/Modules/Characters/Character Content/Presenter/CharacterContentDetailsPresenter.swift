@@ -14,13 +14,16 @@ protocol CharacterContentDetailsPresenterDelegate {
 
 class CharacterContentDetailsPresenter: CharacterContentDetailsPresenterDelegate {
     private weak var view: CharacterContentDetailsViewControllerDelegate?
+    private var router: CharactersRouterProtocol
     private var repo: CharacterRepositoryProtocol
         
     private var disposeBag = DisposeBag()
     
     init(view: CharacterContentDetailsViewControllerDelegate,
+         router: CharactersRouterProtocol,
          repo: CharacterRepositoryProtocol) {
         self.view = view
+        self.router = router
         self.repo = repo
     }
     
@@ -31,9 +34,9 @@ class CharacterContentDetailsPresenter: CharacterContentDetailsPresenterDelegate
                 self?.view?.displayContentInfo(info)
             }
             
-        }, onError: { error in
-            // TODO: error handling
-            print(error.localizedDescription)
+        }, onError: {  [weak self] error in
+            self?.router.showAlert("content_error_message".localized)
+            
         }).disposed(by: disposeBag)
     }
 }

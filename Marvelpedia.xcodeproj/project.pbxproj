@@ -41,6 +41,10 @@
 		7EBCC70D285116A700E140F0 /* GetContentDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCC70C285116A700E140F0 /* GetContentDetailsResponse.swift */; };
 		7EBCC70F2851290E00E140F0 /* CharacterContentDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCC70E2851290E00E140F0 /* CharacterContentDetailsPresenter.swift */; };
 		7EBCC7132851342100E140F0 /* GetContentDetailsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 7EBCC7122851342100E140F0 /* GetContentDetailsResponse.json */; };
+		7EBCC7152851387700E140F0 /* UIAlertViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCC7142851387700E140F0 /* UIAlertViewController+Extension.swift */; };
+		7EBCC71828513FEE00E140F0 /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCC71728513FEE00E140F0 /* BaseViewProtocol.swift */; };
+		7EBCC71B28514B7E00E140F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7EBCC71A28514B7E00E140F0 /* Localizable.strings */; };
+		7EBCC71D28514D5F00E140F0 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCC71C28514D5F00E140F0 /* String+Localizable.swift */; };
 		7EC34B91284A6431006EAD2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC34B90284A6431006EAD2D /* AppDelegate.swift */; };
 		7EC34B93284A6431006EAD2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC34B92284A6431006EAD2D /* SceneDelegate.swift */; };
 		7EC34B95284A6431006EAD2D /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC34B94284A6431006EAD2D /* CharacterListViewController.swift */; };
@@ -136,6 +140,10 @@
 		7EBCC70C285116A700E140F0 /* GetContentDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetContentDetailsResponse.swift; sourceTree = "<group>"; };
 		7EBCC70E2851290E00E140F0 /* CharacterContentDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterContentDetailsPresenter.swift; sourceTree = "<group>"; };
 		7EBCC7122851342100E140F0 /* GetContentDetailsResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetContentDetailsResponse.json; sourceTree = "<group>"; };
+		7EBCC7142851387700E140F0 /* UIAlertViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertViewController+Extension.swift"; sourceTree = "<group>"; };
+		7EBCC71728513FEE00E140F0 /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
+		7EBCC71A28514B7E00E140F0 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		7EBCC71C28514D5F00E140F0 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		7EC34B8D284A6431006EAD2D /* Marvelpedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvelpedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC34B90284A6431006EAD2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EC34B92284A6431006EAD2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,8 +232,9 @@
 		7E1376FE284F53BD00A7AE2B /* Base Views */ = {
 			isa = PBXGroup;
 			children = (
-				7E13772F2850F20200A7AE2B /* Util */,
 				7E1376FF284F53BD00A7AE2B /* BaseViewController.swift */,
+				7EBCC71628513FD900E140F0 /* Protocols */,
+				7E13772F2850F20200A7AE2B /* Util */,
 			);
 			path = "Base Views";
 			sourceTree = "<group>";
@@ -389,8 +398,8 @@
 		7EBCC7032851111B00E140F0 /* Character Content */ = {
 			isa = PBXGroup;
 			children = (
-				7EBCC7102851292600E140F0 /* Presenter */,
 				7EBCC7072851120A00E140F0 /* Model */,
+				7EBCC7102851292600E140F0 /* Presenter */,
 				7EBCC7042851112900E140F0 /* View */,
 			);
 			path = "Character Content";
@@ -430,6 +439,23 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		7EBCC71628513FD900E140F0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7EBCC71728513FEE00E140F0 /* BaseViewProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7EBCC7192851496B00E140F0 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				7EBCC71A28514B7E00E140F0 /* Localizable.strings */,
+				7EBCC71C28514D5F00E140F0 /* String+Localizable.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		7EC34B84284A6431006EAD2D = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +485,7 @@
 				7EC34B99284A6432006EAD2D /* Assets.xcassets */,
 				7E1376FE284F53BD00A7AE2B /* Base Views */,
 				7EC34B9E284A6432006EAD2D /* Info.plist */,
+				7EBCC7192851496B00E140F0 /* Localization */,
 				7EC34BD4284A8603006EAD2D /* Modules */,
 				7EC34BC0284A6458006EAD2D /* Networking */,
 				7E137701284F7FAD00A7AE2B /* Router */,
@@ -506,6 +533,7 @@
 				7EC34BDE284AA7BD006EAD2D /* Dictionary+PlusOperation.swift */,
 				7EC34BC8284A69FE006EAD2D /* PlistParser.swift */,
 				7EC34BE0284AA7DA006EAD2D /* String+Extension.swift */,
+				7EBCC7142851387700E140F0 /* UIAlertViewController+Extension.swift */,
 				7EC34BF9284B688C006EAD2D /* UIColor+Extension.swift */,
 				7EBCC7012851021E00E140F0 /* UITableView+Extension.swift */,
 			);
@@ -779,6 +807,7 @@
 				7EC34BF8284B66AC006EAD2D /* MarvelCharacterTableViewCell.xib in Resources */,
 				7E13773A2850F25800A7AE2B /* myfontsfree.txt in Resources */,
 				7E13773F2850F25800A7AE2B /* design.graffiti.comicsansms.ttf in Resources */,
+				7EBCC71B28514B7E00E140F0 /* Localizable.strings in Resources */,
 				7EC34B9D284A6432006EAD2D /* LaunchScreen.storyboard in Resources */,
 				7E13773C2850F25800A7AE2B /* comicz.ttf in Resources */,
 				7E13773D2850F25800A7AE2B /* ComicSansMS3.ttf in Resources */,
@@ -938,6 +967,7 @@
 				7EBCC70D285116A700E140F0 /* GetContentDetailsResponse.swift in Sources */,
 				7EC34BF7284B66AC006EAD2D /* MarvelCharacterTableViewCell.swift in Sources */,
 				7EC34BED284AA9D4006EAD2D /* CharacterEventsData.swift in Sources */,
+				7EBCC7152851387700E140F0 /* UIAlertViewController+Extension.swift in Sources */,
 				7EC34BD1284A7968006EAD2D /* GetCharactersRequest.swift in Sources */,
 				7EC34B95284A6431006EAD2D /* CharacterListViewController.swift in Sources */,
 				7EC34BD3284A8576006EAD2D /* CharacterRepository.swift in Sources */,
@@ -949,6 +979,7 @@
 				7EC34BDD284AA776006EAD2D /* CustomJSONDecoder.swift in Sources */,
 				7EBCC7022851021E00E140F0 /* UITableView+Extension.swift in Sources */,
 				7EC34B91284A6431006EAD2D /* AppDelegate.swift in Sources */,
+				7EBCC71D28514D5F00E140F0 /* String+Localizable.swift in Sources */,
 				7EC34BE1284AA7DA006EAD2D /* String+Extension.swift in Sources */,
 				7E13770C284F879A00A7AE2B /* GetCharacterResponse.swift in Sources */,
 				7EC34BCF284A78EC006EAD2D /* CharacterEndpoints.swift in Sources */,
@@ -973,6 +1004,7 @@
 				7EC34BC4284A64B9006EAD2D /* BaseNetworkLayer.swift in Sources */,
 				7E137703284F7FBF00A7AE2B /* CharactersRouter.swift in Sources */,
 				7EC34BC9284A69FE006EAD2D /* PlistParser.swift in Sources */,
+				7EBCC71828513FEE00E140F0 /* BaseViewProtocol.swift in Sources */,
 				7EBCC70B2851142900E140F0 /* GetContentDetailsRequest.swift in Sources */,
 				7EBCC70F2851290E00E140F0 /* CharacterContentDetailsPresenter.swift in Sources */,
 				7E137717284FA6B400A7AE2B /* CharacterContent.swift in Sources */,

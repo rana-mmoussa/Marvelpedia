@@ -45,7 +45,7 @@ class CharacterDetailsViewController: BaseViewController {
         presenter = CharacterDetailsPresenter(view: self,
                                               router: CharactersRouter(viewController: self),
                                               repo: CharacterRepository())
-        navigationBarText = (title: "Character Info", isLarge: false)
+        navigationBarText = (title: "details_page_title".localized, isLarge: false)
         setupViews()
         displayCharacterInfo()
         presenter?.getCharacter(with: character?.id ?? 0)
@@ -68,9 +68,9 @@ class CharacterDetailsViewController: BaseViewController {
         characterImageView.kf.setImage(with: url)
         characterNameLabel.text = character.name
         characterDescriptionLabel.text = character.resultDescription
-        numberOfComicsLabel.text = "\(character.comics?.available ?? 0) Comics"
-        numberOfSeriesLabel.text = "\(character.series?.available ?? 0) Series"
-        numberOfStoriesLabel.text = "\(character.stories?.available ?? 0) Stories"
+        numberOfComicsLabel.text = "\(character.comics?.available ?? 0) " + "comics".localized
+        numberOfSeriesLabel.text = "\(character.series?.available ?? 0) " + "series".localized
+        numberOfStoriesLabel.text = "\(character.stories?.available ?? 0) " + "stories".localized
     }
 }
 

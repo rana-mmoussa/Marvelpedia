@@ -60,9 +60,10 @@ class CharacterListPresenter: CharacterListPresenterDelegate {
             self?.checkNeedsReset(keyword: name)
             self?.getCharactersSucceeded(response: response)
             
-        }, onError: { error in
-            // TODO: error handling
-            print(error.localizedDescription)
+        }, onError: { [weak self] error in
+            if self?.characters.isEmpty ?? true {
+                self?.router.showAlert("list_error_message".localized)
+            }
             
         }).disposed(by: disposeBag)
     }
@@ -70,8 +71,8 @@ class CharacterListPresenter: CharacterListPresenterDelegate {
     func getCharacterDisplayModel(at index: Int) -> MarvelCharacterCellModel {
         let character = characters[index]
         let uiModel = CharacterUIModel(imageUrl: character.thumbnail?.url,
-                                       name: character.name ?? "No Name",
-                                       description: character.resultDescription ?? "No Description")
+                                       name: character.name ?? "no_name".localized,
+                                       description: character.resultDescription ?? "no_description".localized)
         return MarvelCharacterCellModel(character: uiModel, isMirrored: index % 2 == 0)
     }
     

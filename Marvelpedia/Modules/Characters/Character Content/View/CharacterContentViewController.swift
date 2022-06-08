@@ -40,7 +40,7 @@ class CharacterContentViewController: UIViewController {
                                           width: tableView.bounds.width, height: CGFloat(44)))
         label.textAlignment = .center
         label.font = UIFont(name: Fonts.comicSans.rawValue, size: 10)
-        label.text = "Showing maximum of: 20"
+        label.text = "content_max".localized
         tableView.tableFooterView = label
         tableView.tableFooterView?.isHidden = false
     }

@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Marvelpedia
+
+  Created by Rana Moussa on 08/06/2022.
+  
+*/
+
+// MARK: app name
+"app_name" = "Marvelpedia";
+
+// MARK: list page
+"character_name" = "Character Name..";
+"clear_filters" = "Clear Filters";
+"no_name" = "No Name";
+"no_description" = "No Description";
+
+// MARK: details page
+"details_page_title" = "Character Info";
+"comics" = "Comics";
+"series" = "Series";
+"stories" = "Stories";
+"content_max" = "Showing maximum of: 20";
+
+// MARK: errors
+"list_error_message" = "Oh no, please try again with a different keyword!";
+"content_error_message" = "Oh no, please try again soon!";

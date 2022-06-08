@@ -38,8 +38,7 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterDelegate {
             self?.getCharacterDetailsSucceeded(response: response)
             
         }, onError: { error in
-            // TODO: error handling
-            print(error.localizedDescription)
+            // no need to propagate error, since character details are already shown from list
             
         }).disposed(by: disposeBag)
     }
@@ -47,7 +46,7 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterDelegate {
     func comicsButtonClicked() {
         if let comics = character?.comics?.items, !comics.isEmpty {
             let content = comics.map {
-                ($0.name ?? "No Name", $0.resourceURI?.absoluteString ?? "")
+                ($0.name ?? "no_name".localized, $0.resourceURI?.absoluteString ?? "")
             }
             router.presentCharacterContent(CharacterContent(type: .comics,
                                                             count: character?.comics?.available ?? 0,
@@ -58,7 +57,7 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterDelegate {
     func seriesButtonClicked() {
         if let series = character?.series?.items, !series.isEmpty {
             let content = series.map {
-                ($0.name ?? "No Name", $0.resourceURI?.absoluteString ?? "")
+                ($0.name ?? "no_name".localized, $0.resourceURI?.absoluteString ?? "")
             }
             router.presentCharacterContent(CharacterContent(type: .series,
                                                             count: character?.series?.available ?? 0,
@@ -69,7 +68,7 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterDelegate {
     func storiesButtonClicked() {
         if let stories = character?.stories?.items, !stories.isEmpty {
             let content = stories.map {
-                ($0.name ?? "No Name", $0.resourceURI?.absoluteString ?? "")
+                ($0.name ?? "no_name".localized, $0.resourceURI?.absoluteString ?? "")
             }
             router.presentCharacterContent(CharacterContent(type: .stories,
                                                             count: character?.stories?.available ?? 0,
