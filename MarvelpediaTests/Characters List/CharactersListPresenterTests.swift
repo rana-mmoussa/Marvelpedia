@@ -28,12 +28,7 @@ class CharactersListPresenterTests: XCTestCase {
 
     func testGetCharacters() {
         presenter.getCharacters(withName: "sample keyword")
-        
-        let expectation = self.expectation(description: "Test")
-        DispatchQueue.main.async {
-            expectation.fulfill()
-        }
-        self.waitForExpectations(timeout: 1, handler: nil)
+        waitForxpectations()
         
         // assert that number of characters parsed from mock json is 10
         XCTAssertEqual(presenter.numberOfCharacters(), 10)

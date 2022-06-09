@@ -32,4 +32,8 @@ class CharactersRouterStub: CharactersRouterProtocol {
     func presentContentDetailsOf(uri: String) {
         
     }
+    
+    func showAlert(_ message: String) {
+        
+    }
 }

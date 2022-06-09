@@ -77,7 +77,7 @@ class CharacterDetailsPresenter: CharacterDetailsPresenterDelegate {
     }
     
     // MARK: private
-    func getCharacterDetailsSucceeded(response: GetCharacterResponse) {
+    private func getCharacterDetailsSucceeded(response: GetCharacterResponse) {
         if let character = response.data?.results?.first {
             self.character = character
             DispatchQueue.main.async { [weak self] in
